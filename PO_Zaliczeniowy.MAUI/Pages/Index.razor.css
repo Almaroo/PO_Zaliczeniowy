@@ -1,0 +1,18 @@
+﻿.dashboard {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-template-rows: repeat(4, 1fr);
+    height: 100vh;
+    grid-template-areas:
+        "map map map map map"
+        "map map map map map"
+        "calendarwidget calendarwidget . listwidget listwidget"
+        "calendarwidget calendarwidget . listwidget listwidget";
+    column-gap: 10px;
+    row-gap: 15px;
+}
+
+.dashboard__mapWrapper {
+    height: 100%;
+    grid-area: map;
+}
