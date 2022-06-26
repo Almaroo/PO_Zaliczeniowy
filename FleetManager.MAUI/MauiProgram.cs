@@ -1,5 +1,6 @@
 ﻿using FleetManager.MAUI.Data;
 using BlazorLeafletMap.Extensions;
+using FleetManager.YachtsContext;
 
 namespace FleetManager.MAUI;
 
@@ -21,6 +22,7 @@ public static class MauiProgram
 #endif
 
 		builder.Services.AddSingleton<WeatherForecastService>();
+		builder.Services.AddSingleton<FleetManagerContext>();
 		builder.Services.AddBlazorLeafletMap();
 
 		return builder.Build();

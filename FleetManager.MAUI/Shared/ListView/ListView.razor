@@ -1,0 +1,23 @@
+﻿@typeparam TItem
+@if (ListTemplate == null)
+{
+	<ul>
+		@foreach (TItem item in Data ?? Array.Empty<TItem>())
+		{
+			@ItemTemplate(item)
+		}
+	</ul>
+}
+else
+{
+	@ListTemplate(
+		@:@{
+			foreach (TItem item in Data ?? Array.Empty<TItem>())
+			{
+				@ItemTemplate(item)
+			}
+		}
+	)
+}
+
+

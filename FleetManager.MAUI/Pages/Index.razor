@@ -1,11 +1,15 @@
 ﻿@page "/"
+@using FleetManager.MAUI.Components.Dashboard
 
 
 <div id="dashboard" class="dashboard">
     <div class="dashboard__mapWrapper">
         <MapComponent />
     </div>
-    <div class="dashboard__widgetsWrapper">
+        <div class="dashboard__calendarWrapper">
 
-    </div>
+        </div>
+        <div class="dashboard__listWrapper">
+            <YachtList Yachts=@Yachts />
+        </div>
 </div>

@@ -10,7 +10,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BlazorJsInteropGenerator", 
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FleetManager.YachtsContext", "FleetManager.DbContext\FleetManager.YachtsContext.csproj", "{1C7EC1D1-CF85-483A-86AE-1F3A945A751D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FleetManager.Data", "FleetManager.Data\FleetManager.Data.csproj", "{A51DFAF3-3473-44A0-A210-0FAEE619E3CC}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FleetManager.Data", "FleetManager.Data\FleetManager.Data.csproj", "{A51DFAF3-3473-44A0-A210-0FAEE619E3CC}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

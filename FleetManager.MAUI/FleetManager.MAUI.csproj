@@ -50,11 +50,17 @@
 	</ItemGroup>
 
 	<ItemGroup>
-	  <ProjectReference Include="..\BlazorLeafletMap\BlazorLeafletMap.csproj" />
+	  <None Remove="Resources\Images\yacht.svg" />
 	</ItemGroup>
 
 	<ItemGroup>
-	  <Folder Include="Components\" />
+	  <PackageReference Include="BlazorComponentUtilities" Version="1.8.0" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <ProjectReference Include="..\BlazorLeafletMap\BlazorLeafletMap.csproj" />
+	  <ProjectReference Include="..\FleetManager.Data\FleetManager.Data.csproj" />
+	  <ProjectReference Include="..\FleetManager.DbContext\FleetManager.YachtsContext.csproj" />
 	</ItemGroup>
 
 	<ItemGroup>

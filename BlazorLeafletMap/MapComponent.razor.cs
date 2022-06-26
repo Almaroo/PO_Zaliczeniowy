@@ -4,6 +4,9 @@ namespace BlazorLeafletMap
 {
     public partial class MapComponent
     {
+        [Parameter]
+        public string BackgroundColor { get; set; }
+
         [Inject]
         private BlazorLeafletMapModule BlazorLeafletMap { get; set; }
 
@@ -15,6 +18,11 @@ namespace BlazorLeafletMap
 
                 StateHasChanged();
             }
+        }
+
+        protected override void OnParametersSet()
+        {
+            if (string.IsNullOrEmpty(BackgroundColor)) BackgroundColor = "azure";
         }
     }
 }

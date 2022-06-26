@@ -1,0 +1,25 @@
+﻿@using FleetManager.MAUI.Shared.ListView
+
+<ListView Data=@Yachts>
+    <ListTemplate Context="listOfYachts">
+        <table border=1 cellpadding=4>
+            <thead>
+            <tr>
+                <th>Salutation</th>
+                <th>Given name</th>
+                <th>Family name</th>
+            </tr>
+            </thead>
+            <tbody>
+                @listOfYachts
+            </tbody>
+        </table>
+    </ListTemplate>
+    <ItemTemplate Context="yacht">
+        <tr @key=@yacht>
+            <td>@yacht.Name</td>
+            <td>@yacht.Make</td>
+            <td>@yacht.YearBuilt</td>
+        </tr>
+    </ItemTemplate>
+</ListView>

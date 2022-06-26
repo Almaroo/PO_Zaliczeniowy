@@ -1,0 +1,13 @@
+﻿.YachtListItem{
+    height: 100%;
+}
+
+.YachtListItem__icon {
+    width: 128px;
+    height: 128px;
+    background-image: url("../Resources/Images/yacht.svg");
+}
+
+.YachtListItem__name {
+    font-size: 2rem;
+}
