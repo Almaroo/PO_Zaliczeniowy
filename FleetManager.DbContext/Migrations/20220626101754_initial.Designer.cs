@@ -10,7 +10,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace FleetManager.YachtsContext.Migrations
 {
-    [DbContext(typeof(YachtsContext))]
+    [DbContext(typeof(FleetManagerContext))]
     [Migration("20220626101754_initial")]
     partial class initial
     {
