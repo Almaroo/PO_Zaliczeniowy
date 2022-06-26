@@ -1,6 +1,6 @@
 ﻿const path = require("path");
 
-const fileName = `${path.basename(path.dirname(__filename)) }.js`;
+const fileName = `${path.basename(path.dirname(__filename))}.js`;
 
 module.exports = {
     experiments: {
