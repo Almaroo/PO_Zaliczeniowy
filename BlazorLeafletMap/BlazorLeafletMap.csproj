@@ -28,11 +28,6 @@
     <AdditionalFiles Include=".\src\index.js" />
   </ItemGroup>
 
-  <PropertyGroup>
-    <!--<EmitCompilerGeneratedFiles>true</EmitCompilerGeneratedFiles>-->
-    <!--<CompilerGeneratedFilesOutputPath>Generated</CompilerGeneratedFilesOutputPath>-->
-  </PropertyGroup>
-
   <Target Name="NpmInstall" Inputs="package.json" Outputs="node_modules/.install-stamp">
     <!--
         Use npm install or npm ci depending on RestorePackagesWithLockFile value.
