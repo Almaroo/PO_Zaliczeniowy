@@ -1,0 +1,37 @@
+﻿.YachtList {
+    padding: 3rem;
+}
+
+.YachtList__header {
+    font-size: 2rem;
+    font-weight: bold;
+}
+
+.YachtList__wrapper {
+    list-style: none;
+}
+
+.YachtList__item {
+    border-bottom: 1px solid #f4f4f4;
+    border-top: 1px solid #f4f4f4;
+    display: flex;
+    align-items: center;
+    justify-content: start;
+    padding: .5rem 0;
+}
+
+.YachtList__item--active {
+    font-weight: bold;
+}
+
+.YachtList__itemIcon {
+    background: url("images/yacht.svg") center no-repeat;
+    background-size: cover;
+    height: 64px;
+    width: 64px;
+}
+
+.YachtList__itemName {
+    margin-left: 1rem;
+    font-size: 2rem;
+}

@@ -16,11 +16,11 @@ namespace FleetManager.MAUI.Pages
         {
         }
 
-        protected override void OnAfterRender(bool firstRender)
+        protected async override Task OnAfterRenderAsync(bool firstRender)
         {
-            if(firstRender)
+            if (firstRender)
             {
-                Yachts = fleetManagerContext.Yachts.AsNoTracking().ToList();
+                Yachts = await fleetManagerContext.Yachts.ToListAsync();
 
                 StateHasChanged();
             }

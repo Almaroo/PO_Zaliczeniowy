@@ -2,24 +2,17 @@
 
 <ListView Data=@Yachts>
     <ListTemplate Context="listOfYachts">
-        <table border=1 cellpadding=4>
-            <thead>
-            <tr>
-                <th>Salutation</th>
-                <th>Given name</th>
-                <th>Family name</th>
-            </tr>
-            </thead>
-            <tbody>
-                @listOfYachts
-            </tbody>
-        </table>
+        <div class="YachtList">
+            <h2 class="YachtList__header">Fleet overview:</h2>
+        <ul class="YachtList__wrapper">
+            @listOfYachts
+        </ul>
+        </div>
     </ListTemplate>
     <ItemTemplate Context="yacht">
-        <tr @key=@yacht>
-            <td>@yacht.Name</td>
-            <td>@yacht.Make</td>
-            <td>@yacht.YearBuilt</td>
-        </tr>
+        <li class="YachtList__item" @key=@yacht @onclick="@(e => SelectActiveYacht(e, yacht))">
+            <span class="YachtList__itemIcon" />
+            <span class="YachtList__itemName">@yacht.Name</span>
+        </li>
     </ItemTemplate>
 </ListView>

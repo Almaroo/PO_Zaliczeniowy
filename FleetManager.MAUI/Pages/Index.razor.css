@@ -12,6 +12,10 @@
     row-gap: 15px;
 }
 
+.dashboard__widget {
+    border-radius: 16px;
+}
+
 .dashboard__mapWrapper {
     height: 100%;
     grid-area: map;

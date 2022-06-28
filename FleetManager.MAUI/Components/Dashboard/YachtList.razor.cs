@@ -1,5 +1,6 @@
 ﻿using FleetManager.Data;
 using Microsoft.AspNetCore.Components;
+using System.Diagnostics;
 
 namespace FleetManager.MAUI.Components.Dashboard
 {
@@ -7,5 +8,10 @@ namespace FleetManager.MAUI.Components.Dashboard
     {
         [Parameter]
         public List<Yacht> Yachts { get; set; }
+
+        private void SelectActiveYacht(EventArgs e, Yacht yacht)
+        {
+            Debug.WriteLine(yacht.Name);
+        }
     }
 }

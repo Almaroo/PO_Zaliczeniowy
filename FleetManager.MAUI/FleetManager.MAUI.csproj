@@ -50,7 +50,12 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <None Remove="Components\Dashboard\YachtList.razor.css" />
 	  <None Remove="Resources\Images\yacht.svg" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <Content Include="Components\Dashboard\YachtList.razor.css" />
 	</ItemGroup>
 
 	<ItemGroup>
@@ -76,6 +81,10 @@
 	    <Generator>SettingsSingleFileGenerator</Generator>
 	    <LastGenOutput>appsettings.Designer.cs</LastGenOutput>
 	  </Content>
+	</ItemGroup>
+
+	<ItemGroup>
+	  <MauiImage Include="wwwroot\images\yacht.svg" />
 	</ItemGroup>
 
 </Project>
