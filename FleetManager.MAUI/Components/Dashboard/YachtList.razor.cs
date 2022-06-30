@@ -1,4 +1,4 @@
-﻿using FleetManager.Data;
+﻿using FleetManager.Data.Models;
 using Microsoft.AspNetCore.Components;
 using System.Diagnostics;
 
@@ -12,6 +12,7 @@ namespace FleetManager.MAUI.Components.Dashboard
         private void SelectActiveYacht(EventArgs e, Yacht yacht)
         {
             Debug.WriteLine(yacht.Name);
+            Debug.WriteLine($"{yacht.Latitude:##.######}, {yacht.Longitude:###.######}");
         }
     }
 }

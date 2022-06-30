@@ -1,11 +1,26 @@
-﻿namespace BlazorLeafletMap
+﻿using Microsoft.JSInterop;
+
+namespace BlazorLeafletMap
 {
     public partial class BlazorLeafletMapModule
     {
-        public async ValueTask<string> InitializeMap()
+
+        private IJSObjectReference mapObjectReference;
+
+        public async Task InitializeMap(Action<MapOptions> options)
         {
+            var initializeOptions = new MapOptions();
+            options(initializeOptions);
+
             var module = await moduleTask.Value;
-            return await module.InvokeAsync<string>(BlazorLeafletMapModule.Methods.InitializeMap, Array.Empty<object>());
+            mapObjectReference = await module.InvokeAsync<IJSObjectReference>(BlazorLeafletMapModule.Methods.InitializeMap, initializeOptions);
+
+            await FlyTo(44.050251m, 15.300985m);
+        }
+
+        public async Task FlyTo(decimal latitude, decimal longitude)
+        {
+            await mapObjectReference.InvokeVoidAsync("flyTo", new[] {latitude, longitude});
         }
     }
 }

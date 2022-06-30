@@ -1,4 +1,4 @@
-﻿using FleetManager.Data;
+﻿using FleetManager.Data.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
 

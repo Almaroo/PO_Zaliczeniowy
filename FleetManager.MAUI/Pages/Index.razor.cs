@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Components;
 using FleetManager.YachtsContext;
-using FleetManager.Data;
+using FleetManager.Data.Models;
 using Microsoft.EntityFrameworkCore;
 
 namespace FleetManager.MAUI.Pages

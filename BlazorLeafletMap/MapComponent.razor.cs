@@ -14,7 +14,13 @@ namespace BlazorLeafletMap
         {
             if(firstRender)
             {
-                await BlazorLeafletMap.InitializeMap();
+                await BlazorLeafletMap.InitializeMap(options =>
+                {
+                    options
+                        .WithLatitude(37.913251m)
+                        .WithLongitude(23.703336m)
+                        .WithZoomLevel(13);
+                });
 
                 StateHasChanged();
             }
