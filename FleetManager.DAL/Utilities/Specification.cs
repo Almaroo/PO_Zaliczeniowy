@@ -1,4 +1,6 @@
-﻿namespace FleetManager.DAL.Utilities
+﻿using System.Linq.Expressions;
+
+namespace FleetManager.DAL.Utilities
 {
     public abstract class Specification<T> : ISpecification<T>
     {

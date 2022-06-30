@@ -1,12 +1,60 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using FleetManager.DAL.Repositories;
+using FleetManager.YachtsContext;
 
 namespace FleetManager.DAL.Utilities
 {
-    internal class UnitOfWork
+    public class UnitOfWork : IDisposable
     {
+        private readonly FleetManagerContext fleetManagerContext;
+        private readonly YachtsRepository yachtsRepository;
+
+        public YachtsRepository YachtsRepository { get; }
+
+        public UnitOfWork(FleetManagerContext fleetManagerContext, YachtsRepository yachtsRepository)
+        {
+            this.fleetManagerContext = fleetManagerContext;
+            YachtsRepository = yachtsRepository;
+        }
+
+        public async ValueTask<bool> Save()
+        {
+            var isSuccess = true;
+            using var transaction = fleetManagerContext.Database.BeginTransaction();
+
+            try
+            {
+                await fleetManagerContext.SaveChangesAsync();
+                await transaction.CommitAsync();
+            }
+            catch (Exception)
+            {
+                isSuccess = false;
+                await transaction.RollbackAsync();
+            }
+
+            return isSuccess;
+        }
+
+        #region IDisposable implementation
+        private bool disposed = false;
+
+        protected virtual void Dispose(bool disposing)
+        {
+            if (!this.disposed)
+            {
+                if (disposing)
+                {
+                    fleetManagerContext.Dispose();
+                }
+            }
+            this.disposed = true;
+        }
+
+        public void Dispose()
+        {
+            Dispose(true);
+            GC.SuppressFinalize(this);
+        }
+        #endregion
     }
 }
