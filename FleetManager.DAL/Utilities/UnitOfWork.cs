@@ -8,12 +8,12 @@ namespace FleetManager.DAL.Utilities
         private readonly FleetManagerContext fleetManagerContext;
         private readonly YachtsRepository yachtsRepository;
 
-        public YachtsRepository YachtsRepository { get; }
+        public YachtsRepository Yachts { get => yachtsRepository; }
 
         public UnitOfWork(FleetManagerContext fleetManagerContext, YachtsRepository yachtsRepository)
         {
             this.fleetManagerContext = fleetManagerContext;
-            YachtsRepository = yachtsRepository;
+            this.yachtsRepository = yachtsRepository;
         }
 
         public async ValueTask<bool> Save()

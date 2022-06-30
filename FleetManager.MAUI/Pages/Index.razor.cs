@@ -1,14 +1,13 @@
 ﻿using Microsoft.AspNetCore.Components;
-using FleetManager.YachtsContext;
 using FleetManager.Data.Models;
-using Microsoft.EntityFrameworkCore;
+using FleetManager.DAL.Utilities;
 
 namespace FleetManager.MAUI.Pages
 {
     public partial class Index
     {
         [Inject]
-        public FleetManagerContext fleetManagerContext { get; set; }
+        public UnitOfWork unitOfWork { get; set; }
 
         public List<Yacht> Yachts { get; set; } = new();
 
@@ -20,7 +19,7 @@ namespace FleetManager.MAUI.Pages
         {
             if (firstRender)
             {
-                Yachts = await fleetManagerContext.Yachts.ToListAsync();
+                Yachts = await unitOfWork.Yachts.Get();
 
                 StateHasChanged();
             }

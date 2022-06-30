@@ -12,6 +12,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FleetManager.YachtsContext"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FleetManager.Data", "FleetManager.Data\FleetManager.Data.csproj", "{A51DFAF3-3473-44A0-A210-0FAEE619E3CC}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FleetManager.DAL", "FleetManager.DAL\FleetManager.DAL.csproj", "{EBB6BFEA-56AF-497B-8BD1-5473AA51C286}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -40,6 +42,10 @@ Global
 		{A51DFAF3-3473-44A0-A210-0FAEE619E3CC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A51DFAF3-3473-44A0-A210-0FAEE619E3CC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A51DFAF3-3473-44A0-A210-0FAEE619E3CC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EBB6BFEA-56AF-497B-8BD1-5473AA51C286}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EBB6BFEA-56AF-497B-8BD1-5473AA51C286}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EBB6BFEA-56AF-497B-8BD1-5473AA51C286}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EBB6BFEA-56AF-497B-8BD1-5473AA51C286}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

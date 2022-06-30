@@ -15,7 +15,7 @@ namespace FleetManager.DAL.Repositories
             this.dbSet = fleetManagerContext.Set<TEntity>();
         }
 
-        public virtual IEnumerable<TEntity> Get(
+        public async virtual Task<List<TEntity>> Get(
             Specification<TEntity>? specification = null,
             Func<IQueryable<TEntity>, IOrderedQueryable<TEntity>>? orderBy = null
             )
@@ -25,13 +25,13 @@ namespace FleetManager.DAL.Repositories
             if (specification is not null) query = query.Where(specification.ToExpression());
 
             return orderBy is not null 
-                ? orderBy(query).ToList() 
-                : query.ToList();
+                ? await orderBy(query).ToListAsync() 
+                : await query.ToListAsync();
         }
 
-        public virtual TEntity GetByID(object id)
+        public async virtual Task<TEntity> GetByID(object id)
         {
-            return dbSet.Find(id);
+            return await dbSet.FindAsync(id);
         }
 
         public virtual void Insert(TEntity entity)
@@ -39,9 +39,9 @@ namespace FleetManager.DAL.Repositories
             dbSet.Add(entity);
         }
 
-        public virtual void Delete(object id)
+        public async virtual ValueTask Delete(object id)
         {
-            TEntity entityToDelete = dbSet.Find(id);
+            TEntity entityToDelete = await dbSet.FindAsync(id);
             Delete(entityToDelete);
         }
 
@@ -60,5 +60,4 @@ namespace FleetManager.DAL.Repositories
             fleetManagerContext.Entry(entityToUpdate).State = EntityState.Modified;
         }
     }
-}
 }

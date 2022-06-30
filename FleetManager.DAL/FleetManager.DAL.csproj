@@ -6,4 +6,8 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\FleetManager.DbContext\FleetManager.YachtsContext.csproj" />
+  </ItemGroup>
+
 </Project>

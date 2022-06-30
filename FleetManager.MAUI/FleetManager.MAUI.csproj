@@ -64,6 +64,7 @@
 
 	<ItemGroup>
 	  <ProjectReference Include="..\BlazorLeafletMap\BlazorLeafletMap.csproj" />
+	  <ProjectReference Include="..\FleetManager.DAL\FleetManager.DAL.csproj" />
 	  <ProjectReference Include="..\FleetManager.Data\FleetManager.Data.csproj" />
 	  <ProjectReference Include="..\FleetManager.DbContext\FleetManager.YachtsContext.csproj" />
 	</ItemGroup>

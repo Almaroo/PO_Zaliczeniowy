@@ -1,4 +1,6 @@
 ﻿using BlazorLeafletMap.Extensions;
+using FleetManager.DAL.Repositories;
+using FleetManager.DAL.Utilities;
 using FleetManager.YachtsContext;
 
 namespace FleetManager.MAUI;
@@ -20,7 +22,9 @@ public static class MauiProgram
 		builder.Services.AddBlazorWebViewDeveloperTools();
 #endif
 
-		builder.Services.AddSingleton<FleetManagerContext>();
+		builder.Services.AddTransient<FleetManagerContext>();
+		builder.Services.AddTransient<YachtsRepository>();
+		builder.Services.AddTransient<UnitOfWork>();
 		builder.Services.AddBlazorLeafletMap();
 
 		return builder.Build();
