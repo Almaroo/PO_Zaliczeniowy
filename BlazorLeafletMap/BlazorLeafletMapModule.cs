@@ -5,7 +5,8 @@ namespace BlazorLeafletMap
     public partial class BlazorLeafletMapModule
     {
 
-        private IJSObjectReference mapObjectReference;
+        private IJSObjectReference mapObject;
+        private Dictionary<string, IJSObjectReference> mapPoints;
 
         public async Task InitializeMap(Action<MapOptions> options)
         {
@@ -13,12 +14,18 @@ namespace BlazorLeafletMap
             options(initializeOptions);
 
             var module = await moduleTask.Value;
-            mapObjectReference = await module.InvokeAsync<IJSObjectReference>(BlazorLeafletMapModule.Methods.InitializeMap, initializeOptions);            
+            mapObject = await module.InvokeAsync<IJSObjectReference>(Methods.InitializeMap, initializeOptions);            
+        }
+
+        public async Task DrawPoint(MapPoint point)
+        {
+            var module = await moduleTask.Value;
+            await module.InvokeAsync<IJSObjectReference>(Methods.DrawPoint, mapObject, point);
         }
 
         public async Task FlyTo(decimal latitude, decimal longitude)
         {
-            await mapObjectReference.InvokeVoidAsync("flyTo", new[] {latitude, longitude});
+            await mapObject.InvokeVoidAsync("flyTo", new[] {latitude, longitude});
         }
     }
 }

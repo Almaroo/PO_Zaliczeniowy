@@ -7,7 +7,15 @@ export function initializeMap({latitude, longitude, zoomLevel}) {
         attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
     }).addTo(map);
 
+    return map;
+}
+
+export function drawPoint(map, { latitude, longitude, radius, tooltipText }) {
+    var yachtMarker = L.circle([latitude, longitude], { radius }).addTo(map);
+
+    yachtMarker.bindTooltip(`${(tooltipText ? `${tooltipText}: `:"")}${latitude}, ${longitude}`);
 
     console.log(map);
-    return map;
+    console.log(yachtMarker);
+    return yachtMarker;
 }

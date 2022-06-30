@@ -26,11 +26,14 @@ namespace FleetManager.MAUI.Pages
                     options
                         .WithLatitude(37.913251m)
                         .WithLongitude(23.703336m)
-                        .WithZoomLevel(20);
+                        .WithZoomLevel(15);
                 });
 
                 if(Yachts.Count > 0)
+                {
                     await YachtSelected(Yachts.First());
+                    await DrawYachtPositions(Yachts);
+                }
 
                 StateHasChanged();
             }
@@ -39,6 +42,23 @@ namespace FleetManager.MAUI.Pages
         protected async Task YachtSelected(Yacht selectedYacht)
         {
             await BlazorLeafletMap.FlyTo(selectedYacht.Latitude, selectedYacht.Longitude);
+        }
+
+        protected async Task DrawYachtPositions(List<Yacht> yachts)
+        {
+            IEnumerable<Task> drawTasks = Yachts.Select(
+                        async y => await BlazorLeafletMap.DrawPoint(
+                            new MapPoint
+                            {
+                                Latitude = y.Latitude,
+                                Longitude = y.Longitude,
+                                Radius = 5,
+                                TooltipText = y.Name
+                            }
+                            )
+                        );
+
+            await Task.WhenAll(drawTasks);
         }
     }
 }
