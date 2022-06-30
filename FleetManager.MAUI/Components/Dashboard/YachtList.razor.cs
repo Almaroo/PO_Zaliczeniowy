@@ -9,10 +9,14 @@ namespace FleetManager.MAUI.Components.Dashboard
         [Parameter]
         public List<Yacht> Yachts { get; set; }
 
-        private void SelectActiveYacht(EventArgs e, Yacht yacht)
+        [Parameter]
+        public EventCallback<Yacht> OnYachtSelected { get; set; }
+
+        private async Task SelectActiveYacht(EventArgs e, Yacht yacht)
         {
             Debug.WriteLine(yacht.Name);
             Debug.WriteLine($"{yacht.Latitude:##.######}, {yacht.Longitude:###.######}");
+            await OnYachtSelected.InvokeAsync(yacht);
         }
     }
 }

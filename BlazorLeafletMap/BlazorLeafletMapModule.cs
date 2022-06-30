@@ -13,9 +13,7 @@ namespace BlazorLeafletMap
             options(initializeOptions);
 
             var module = await moduleTask.Value;
-            mapObjectReference = await module.InvokeAsync<IJSObjectReference>(BlazorLeafletMapModule.Methods.InitializeMap, initializeOptions);
-
-            await FlyTo(44.050251m, 15.300985m);
+            mapObjectReference = await module.InvokeAsync<IJSObjectReference>(BlazorLeafletMapModule.Methods.InitializeMap, initializeOptions);            
         }
 
         public async Task FlyTo(decimal latitude, decimal longitude)

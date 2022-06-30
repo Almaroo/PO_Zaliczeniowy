@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Components;
 using FleetManager.Data.Models;
 using FleetManager.DAL.Utilities;
+using BlazorLeafletMap;
 
 namespace FleetManager.MAUI.Pages
 {
@@ -9,11 +10,10 @@ namespace FleetManager.MAUI.Pages
         [Inject]
         public UnitOfWork unitOfWork { get; set; }
 
-        public List<Yacht> Yachts { get; set; } = new();
+        [Inject]
+        private BlazorLeafletMapModule BlazorLeafletMap { get; set; }
 
-        public Index()
-        {
-        }
+        public List<Yacht> Yachts { get; set; } = new();
 
         protected async override Task OnAfterRenderAsync(bool firstRender)
         {
@@ -21,8 +21,24 @@ namespace FleetManager.MAUI.Pages
             {
                 Yachts = await unitOfWork.Yachts.Get();
 
+                await BlazorLeafletMap.InitializeMap(options =>
+                {
+                    options
+                        .WithLatitude(37.913251m)
+                        .WithLongitude(23.703336m)
+                        .WithZoomLevel(20);
+                });
+
+                if(Yachts.Count > 0)
+                    await YachtSelected(Yachts.First());
+
                 StateHasChanged();
             }
+        }
+
+        protected async Task YachtSelected(Yacht selectedYacht)
+        {
+            await BlazorLeafletMap.FlyTo(selectedYacht.Latitude, selectedYacht.Longitude);
         }
     }
 }
