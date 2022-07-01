@@ -96,8 +96,12 @@ namespace {namespaceName}
             {string.Join($"{Environment.NewLine}\t\t\t", methodNames.Select(name => $"public static string {name} = \"{name}\";"))}
         }}
 
+        partial void DisposeCustom();
+
         public async ValueTask DisposeAsync()
         {{
+            DisposeCustom();
+
             if (moduleTask.IsValueCreated)
             {{
                 var module = await moduleTask.Value;

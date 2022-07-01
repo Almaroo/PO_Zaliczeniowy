@@ -6,8 +6,8 @@
     grid-template-areas:
         "map map map map map"
         "map map map map map"
-        "calendarwidget calendarwidget . listwidget listwidget"
-        "calendarwidget calendarwidget . listwidget listwidget";
+        "listwidget listwidget listwidget listwidget listwidget"
+        "listwidget listwidget listwidget listwidget listwidget";
     column-gap: 10px;
     row-gap: 15px;
 }

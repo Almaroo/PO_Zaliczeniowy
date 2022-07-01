@@ -27,5 +27,10 @@ namespace BlazorLeafletMap
         {
             await mapObject.InvokeVoidAsync("flyTo", new[] {latitude, longitude});
         }
+
+        partial void DisposeCustom()
+        {
+            Task.WaitAll(mapObject.DisposeAsync().AsTask());
+        }
     }
 }
