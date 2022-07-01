@@ -14,6 +14,7 @@ namespace FleetManager.MAUI.Pages
         private BlazorLeafletMapModule BlazorLeafletMap { get; set; }
 
         public List<Yacht> Yachts { get; set; } = new();
+        public Yacht SelectedYacht { get; set; }
 
         protected async override Task OnAfterRenderAsync(bool firstRender)
         {
@@ -41,6 +42,7 @@ namespace FleetManager.MAUI.Pages
 
         protected async Task YachtSelected(Yacht selectedYacht)
         {
+            SelectedYacht = selectedYacht;
             await BlazorLeafletMap.FlyTo(selectedYacht.Latitude, selectedYacht.Longitude);
         }
 

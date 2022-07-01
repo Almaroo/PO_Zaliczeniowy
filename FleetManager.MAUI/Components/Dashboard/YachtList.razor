@@ -10,7 +10,7 @@
         </div>
     </ListTemplate>
     <ItemTemplate Context="yacht">
-        <li class="YachtList__item" @key=@yacht @onclick="@(e => SelectActiveYacht(e, yacht))">
+        <li class="@CssClassYachtListItem(yacht)" @key=@yacht @onclick="@(e => SelectActiveYacht(e, yacht))">
             <span class="YachtList__itemIcon" />
             <span class="YachtList__itemName">@yacht.Name</span>
         </li>

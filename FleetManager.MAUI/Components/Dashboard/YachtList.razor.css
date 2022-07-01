@@ -1,5 +1,5 @@
 ﻿.YachtList {
-    padding: 3rem;
+    padding: 3rem 3rem 0 3rem;
 }
 
 .YachtList__header {
@@ -23,17 +23,35 @@
     padding: 1.5rem 1rem;
     width: 25%;
     flex: 40%;
-    background-color: #778da9;
+    background-color: #aed9e0;
     border: solid 2px #415a77;
     border-radius: 16px;
     display: flex;
     align-items: center;
     justify-content: start;
+    cursor: pointer;
+}
+
+.YachtList__item:hover {
+    background-color: #8badb3;
+    color: #fff;
+    transition: all linear .1s;
+}
+
+.YachtList__item:hover .YachtList__itemIcon {
+    filter: brightness(0) invert(1);
+    transition: all linear .1s;
 }
 
 .YachtList__item--active {
-    background-color: #415a77;
-    border: solid 2px #778da9;
+    background-color: #8badb3;
+    border: solid 2px #aed9e0;
+    color: #fff;
+}
+
+.YachtList__item--active .YachtList__itemIcon {
+    filter: brightness(0) invert(1);
+    transition: all linear .1s;
 }
 
 .YachtList__itemIcon {
